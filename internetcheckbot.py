@@ -19,7 +19,7 @@ def internet_on():
 		try:
 			urllib.request.urlopen(GOOGLE_IP, timeout=5)
 			return True
-		except urllib.request.URLError as err:
+		except urllib.request.URLError:
 			pass
 	return False
 
