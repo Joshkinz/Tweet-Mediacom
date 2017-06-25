@@ -45,6 +45,5 @@ while True:
 				api.PostUpdate("Hey @MediacomSupport my internet was out for %i minutes. It has been going out for several minutes on a daily basis #mediacom #internet" % minute)
 			a = True
 			time.sleep(120)
-	if a:
-		print("Internet is up at %s." % datetime.datetime.now())
-		time.sleep(120)
+	print("Internet is up at %s." % datetime.datetime.now())
+	time.sleep(120)
