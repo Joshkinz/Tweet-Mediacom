@@ -16,7 +16,6 @@ def internet_on():
 			urllib.request.urlopen('http://172.217.8.206', timeout=5)
 			#172.217.8.206 is google.com's IP (as of 6/24/2017)
 			return True
-			break
 		except urllib.request.URLError as err:
 			attempts = attempts - 1
 	if attempts == 0:
@@ -26,7 +25,6 @@ def internet_on():
 				urllib.request.urlopen('http://68.66.66.193', timeout=5)
 				#68.66.66.193 is mediacomcable.com's IP (as of 6/24/2017)
 				return True
-				break
 			except urllib.request.URLError as err:
 				attempts2 = attempts2 - 1
 		if attempts2 == 0:
@@ -36,7 +34,6 @@ def internet_on():
 					urllib.request.urlopen('http://151.101.1.140', timeout=5)
 					#151.101.1.140 is reddit.com's IP (as of 6/24/2017)
 					return True
-					break
 				except urllib.request.URLError as err:
 					attempts3 = attempts3 - 1
 			if attempts3 == 0:
