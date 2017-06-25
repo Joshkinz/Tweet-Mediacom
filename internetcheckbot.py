@@ -17,7 +17,7 @@ def internet_on():
 			#172.217.8.206 is google.com's IP (as of 6/24/2017)
 			return True
 		except urllib.request.URLError as err:
-			attempts = attempts - 1
+			attempts -= 1
 	if attempts == 0:
 		attempts2 = 5
 		while attempts2 > 0:
@@ -26,7 +26,7 @@ def internet_on():
 				#68.66.66.193 is mediacomcable.com's IP (as of 6/24/2017)
 				return True
 			except urllib.request.URLError as err:
-				attempts2 = attempts2 - 1
+				attempts2 -= 1
 		if attempts2 == 0:
 			attempts3 = 5
 			while attempts3 > 0:
@@ -35,7 +35,7 @@ def internet_on():
 					#151.101.1.140 is reddit.com's IP (as of 6/24/2017)
 					return True
 				except urllib.request.URLError as err:
-					attempts3 = attempts3 - 1
+					attempts3 -= 1
 			if attempts3 == 0:
 				return False
 
@@ -49,7 +49,7 @@ while True:
 		if b == False:
 			print("Internet offline for %i minutes at %s." % (minute, datetime.datetime.now()))
 			time.sleep(120)
-			minute = minute + 2
+			minute += 2
 		if b == True:
 			print("Internet was out for %i minutes, back up at %s." % (minute, datetime.datetime.now()))
 			if minute > 2:
