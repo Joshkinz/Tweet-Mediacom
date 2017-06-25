@@ -15,13 +15,12 @@ api = twitter.Api(consumer_key='', consumer_secret='', access_token_key='', acce
 #--Defines the check for internet
 
 def internet_on():
-	attempts = 15
-	while attempts > 0:
+	for _ in range(15):
 		try:
 			urllib.request.urlopen(GOOGLE_IP, timeout=5)
 			return True
 		except urllib.request.URLError as err:
-			attempts -= 1
+			pass
 	return False
 
 #--Checks if internet is up, tweets if not
