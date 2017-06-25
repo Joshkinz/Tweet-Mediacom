@@ -18,7 +18,7 @@ def internet_on():
 			return True
 			break
 		except urllib.request.URLError as err:
-			attempts = attempts -1
+			attempts = attempts - 1
 	if attempts == 0:
 		attempts2 = 5
 		while attempts2 > 0:
