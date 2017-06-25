@@ -15,27 +15,13 @@ api = twitter.Api(consumer_key='', consumer_secret='', access_token_key='', acce
 #--Defines the check for internet
 
 def internet_on():
-	attempts = 5
+	attempts = 15
 	while attempts > 0:
 		try:
 			urllib.request.urlopen(GOOGLE_IP, timeout=5)
 			return True
 		except urllib.request.URLError as err:
 			attempts -= 1
-	attempts2 = 5
-	while attempts2 > 0:
-		try:
-			urllib.request.urlopen(MEDIACOMCABLE_IP, timeout=5)
-			return True
-		except urllib.request.URLError as err:
-			attempts2 -= 1
-	attempts3 = 5
-	while attempts3 > 0:
-		try:
-			urllib.request.urlopen(REDDIT_IP, timeout=5)
-			return True
-		except urllib.request.URLError as err:
-			attempts3 -= 1
 	return False
 
 #--Checks if internet is up, tweets if not
@@ -45,7 +31,7 @@ while True:
 	minute = 0
 	while not a:
 		b = internet_on()
-	        if not b:
+		if not b:
 			print("Internet offline for %i minutes at %s." % (minute, datetime.datetime.now()))
 			time.sleep(120)
 			minute += 2
