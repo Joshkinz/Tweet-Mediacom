@@ -1,12 +1,11 @@
 # Tweet-Mediacom
 Checks if internet is down, tweets at Mediacom when it's back
 
-REQUIREMENTS:
+## Requirements
+
 Python 3
 
-python-twitter (pip install python-twitter
-
-Credit to @Volcyy for his improvements to the code!
+python-twitter (pip install python-twitter)
 
 ## Install
 
@@ -25,3 +24,9 @@ It should look like this:
 }
 ```
 You can get the information for this from [apps.twitter.com](https://apps.twitter.com)
+
+## Credits
+
+@Volcyy - Overall improvements to the code
+
+@schwartzadev - Added config.json functionality
