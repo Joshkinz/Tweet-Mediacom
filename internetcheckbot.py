@@ -22,24 +22,21 @@ def internet_on():
 			return True
 		except urllib.request.URLError as err:
 			attempts -= 1
-	if attempts == 0:
-		attempts2 = 5
-		while attempts2 > 0:
-			try:
-				urllib.request.urlopen(MEDIACOMCABLE_IP, timeout=5)
-				return True
-			except urllib.request.URLError as err:
-				attempts2 -= 1
-		if attempts2 == 0:
-			attempts3 = 5
-			while attempts3 > 0:
-				try:
-					urllib.request.urlopen(REDDIT_IP, timeout=5)
-					return True
-				except urllib.request.URLError as err:
-					attempts3 -= 1
-			if attempts3 == 0:
-				return False
+	attempts2 = 5
+	while attempts2 > 0:
+		try:
+			urllib.request.urlopen(MEDIACOMCABLE_IP, timeout=5)
+			return True
+		except urllib.request.URLError as err:
+			attempts2 -= 1
+	attempts3 = 5
+	while attempts3 > 0:
+		try:
+			urllib.request.urlopen(REDDIT_IP, timeout=5)
+			return True
+		except urllib.request.URLError as err:
+			attempts3 -= 1
+	return False
 
 #--Checks if internet is up, tweets if not
 
