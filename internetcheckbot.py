@@ -1,8 +1,10 @@
 import urllib.request
 import time
-import twitter
 import datetime
 import random
+
+import twitter
+
 
 # Last updated 6/24/2017
 GOOGLE_IP = 'http://172.217.8.206'
