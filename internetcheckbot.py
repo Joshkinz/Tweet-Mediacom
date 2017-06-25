@@ -2,6 +2,7 @@ import urllib.request
 import time
 import datetime
 import random
+import json
 
 import twitter
 
@@ -15,9 +16,16 @@ IP_ADDRESSES = [GOOGLE_IP, MEDIACOMCABLE_IP, REDDIT_IP]
 # The maximum attempts to ping the above IP adresses before declaring internet as off
 MAXIMUM_ATTEMPTS = 15
 
-#--Connect to Twitter
 
-api = twitter.Api(consumer_key='', consumer_secret='', access_token_key='', access_token_secret='')
+# Get login info from config
+with open('config.json') as file:
+    config = json.load(file)
+
+#--Connect to Twitter
+api = twitter.Api(consumer_key=config['consumer-key'],
+	consumer_secret=config['consumer-secret'],
+	access_token_key=config['access-token']['key'],
+	access_token_secret=config['access-token']['secret'])
 
 #--Defines the check for internet
 
