@@ -3,6 +3,11 @@ import time
 import twitter
 import datetime
 
+# Last updated 6/24/2017
+GOOGLE_IP = 'http://172.217.8.206'
+MEDIACOMCABLE_IP = 'http://68.66.66.193'
+REDDIT_IP = 'http://151.101.1.140'
+
 #--Connect to Twitter
 
 api = twitter.Api(consumer_key='', consumer_secret='', access_token_key='', access_token_secret='')
@@ -13,8 +18,7 @@ def internet_on():
 	attempts = 5
 	while attempts > 0:
 		try:
-			urllib.request.urlopen('http://172.217.8.206', timeout=5)
-			#172.217.8.206 is google.com's IP (as of 6/24/2017)
+			urllib.request.urlopen(GOOGLE_IP, timeout=5)
 			return True
 		except urllib.request.URLError as err:
 			attempts -= 1
@@ -22,8 +26,7 @@ def internet_on():
 		attempts2 = 5
 		while attempts2 > 0:
 			try:
-				urllib.request.urlopen('http://68.66.66.193', timeout=5)
-				#68.66.66.193 is mediacomcable.com's IP (as of 6/24/2017)
+				urllib.request.urlopen(MEDIACOMCABLE_IP, timeout=5)
 				return True
 			except urllib.request.URLError as err:
 				attempts2 -= 1
@@ -31,8 +34,7 @@ def internet_on():
 			attempts3 = 5
 			while attempts3 > 0:
 				try:
-					urllib.request.urlopen('http://151.101.1.140', timeout=5)
-					#151.101.1.140 is reddit.com's IP (as of 6/24/2017)
+					urllib.request.urlopen(REDDIT_IP, timeout=5)
 					return True
 				except urllib.request.URLError as err:
 					attempts3 -= 1
