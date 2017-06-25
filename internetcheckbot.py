@@ -46,18 +46,18 @@ def internet_on():
 while True:
 	a = internet_on()
 	minute = 0
-	while a == False:
+	while not a:
 		b = internet_on()
-		if b == False:
+	        if not b:
 			print("Internet offline for %i minutes at %s." % (minute, datetime.datetime.now()))
 			time.sleep(120)
 			minute += 2
-		if b == True:
+		else:
 			print("Internet was out for %i minutes, back up at %s." % (minute, datetime.datetime.now()))
 			if minute > 2:
 				api.PostUpdate("Hey @MediacomSupport my internet was out for %i minutes. It has been going out for several minutes on a daily basis #mediacom #internet" % minute)
 			a = True
 			time.sleep(120)
-	if a == True:
+	if a:
 		print("Internet is up at %s." % datetime.datetime.now())
 		time.sleep(120)
