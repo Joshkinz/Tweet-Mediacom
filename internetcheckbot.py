@@ -19,7 +19,7 @@ def internet_on():
 			break
 		except urllib.request.URLError as err:
 			attempts = attempts -1
-	if attempts = 0:
+	if attempts == 0:
 		attempts2 = 5
 		while attempts2 > 0:
 			try:
@@ -29,7 +29,7 @@ def internet_on():
 				break
 			except urllib.request.URLError as err:
 				attempts2 = attempts2 - 1
-		if attempts2 = 0:
+		if attempts2 == 0:
 			attempts3 = 5
 			while attempts3 > 0:
 				try:
@@ -39,7 +39,7 @@ def internet_on():
 					break
 				except urllib.request.URLError as err:
 					attempts3 = attempts3 - 1
-			if attempts3 = 0:
+			if attempts3 == 0:
 				return False
 
 #--Checks if internet is up, tweets if not
